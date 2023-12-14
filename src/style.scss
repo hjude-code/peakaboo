@@ -8,6 +8,9 @@
 .wp-block-hjude-peak-a-boo {
 	overflow: hidden;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
 .wp-block-hjude-peak-a-boo::before{
@@ -18,7 +21,7 @@
 	left: 0px;
 	bottom: 0px;
 	height: 10%;
-	background-color: red;
+	background-color:var(--wp--preset--color--accent);
 	z-index: 10;
 }
 
