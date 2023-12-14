@@ -6,7 +6,27 @@
  */
 
 .wp-block-hjude-peak-a-boo {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	overflow: hidden;
+	position: relative;
+}
+
+.wp-block-hjude-peak-a-boo::before{
+	content:'';
+	display: block;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+	height: 10%;
+	background-color: red;
+	z-index: 10;
+}
+
+.wp-block-hjude-peak-a-boo .peek-content{
+	transform: translateY(100%);
+	transition:0.75s ease-in-out;
+}
+
+.wp-block-hjude-peak-a-boo.peekIn .peek-content{
+	transform: translateY(0%);
 }

@@ -11,7 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, PanelRow, RangeControl } from '@wordpress/components'
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +30,43 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+
+	const{
+		attributes:{Height},
+		setAttributes,
+		setClass
+	}=props
+
+	const blockHeight = {
+		height: `${Height}vh`
+	};
+
+
+	const onChangeHeight = (newHeight) =>{
+		setAttributes( {Height: newHeight} );
+	};
+
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Peak-a-boo – hello from the editor!', 'peak-a-boo' ) }
-		</p>
+		<div { ...useBlockProps( { style: blockHeight }) }>
+			{/* <InspectorControls>
+				<PanelBody>
+					<PanelRow>
+						<RangeControl
+							value={Height}
+							onChange={onChangeHeight}
+							label="Block Height"
+							min={1}
+							max={100}
+						/>
+					</PanelRow>
+				</PanelBody>
+			</InspectorControls> */}
+
+			<InnerBlocks
+				allowedBlocks={['core/image']}
+			/>
+		</div>
 	);
 }

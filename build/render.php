@@ -2,7 +2,10 @@
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Peak-a-boo – hello from a dynamic block!', 'peak-a-boo' ); ?>
-</p>
+<div <?php echo get_block_wrapper_attributes();?> >
+	<div class="peek-content">
+		<?php echo $content ?>
+	</div>
+</div>
